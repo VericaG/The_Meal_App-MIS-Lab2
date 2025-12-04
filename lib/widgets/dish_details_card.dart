@@ -67,7 +67,7 @@ class DetailsCard extends StatelessWidget {
                   await launchUrl(
                     Uri.parse(meal.strYoutube!),
                     mode: LaunchMode
-                        .externalApplication, // ќе отвори во YouTube апликација или browser
+                        .externalApplication,
                   );
                 },
                 child: const Text('Watch on YouTube'),

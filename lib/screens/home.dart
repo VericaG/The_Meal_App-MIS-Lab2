@@ -3,6 +3,8 @@ import 'package:the_meal_app/models/category_model.dart';
 import 'package:the_meal_app/services/category_api_service.dart';
 import 'package:the_meal_app/widgets/categories_grid.dart';
 
+import '../services/local_notification_service.dart';
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
@@ -20,11 +22,15 @@ class _MyHomePageState extends State<MyHomePage> {
   String _searchQuery = '';
   final FoodCategoryApiService _apiService = FoodCategoryApiService();
   final TextEditingController _searchController = TextEditingController();
+  final _localNotificationService = LocalNotificationService();
 
   @override
   void initState() {
     super.initState();
     _loadCategories();
+
+    _localNotificationService.showTestNotification();
+    _localNotificationService.scheduleDailyRecipeNotification();
   }
 
   void _loadCategories() async {
